@@ -7,3 +7,8 @@ const child = spawn('pwd')
 child.on('exit',(code, sig)=>{
   console.log(`The program exited with code: ${code} and signal: ${sig}`);
 })
+
+//data event is always on stdout
+child.stdout.on('data',data => {
+  console.log('child stdout: '+data);
+})
